@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-.gradle
-/local.properties
-/.idea/*
-.DS_Store
-/build
-*.iml
-com_crashlytics_export_strings.xml
-=======
+
 # Built application files
 *.apk
 *.ap_
@@ -62,4 +54,3 @@ google-services.json
 freeline.py
 freeline/
 freeline_project_description.json
->>>>>>> 46e32cc3ee02d5291385a6f11e0843c5d7cc4fcd

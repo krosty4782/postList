@@ -12,14 +12,14 @@ import rx.subscriptions.CompositeSubscription;
 public class PostDetailsPresenterImpl implements PostDetailsPresenter {
 
     private View view;
-    private UsersService service;
+    private UsersService usersService;
     private CommentsService commentsService;
     private Post post;
     private CompositeSubscription subscriptions = new CompositeSubscription();
 
     public PostDetailsPresenterImpl(@NonNull UsersService usersService,
                                     @NonNull CommentsService commentsService) {
-        this.service = usersService;
+        this.usersService = usersService;
         this.commentsService = commentsService;
     }
 
@@ -27,7 +27,7 @@ public class PostDetailsPresenterImpl implements PostDetailsPresenter {
     public void attachView(View presenterView) {
         this.view = presenterView;
         subscriptions.add(
-                service.getUser(post.getUserId())
+                usersService.getUser(post.getUserId())
                         .subscribe(user -> view.showUsername(user.getUsername()), error -> Log.e("ERROR", error.getMessage())));
         subscriptions.add(
                 commentsService.getComments(post.getId())
